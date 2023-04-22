@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './NavBar';
+import Search from './pages/Search';
 function App() {
   return (
     <div className="App">
@@ -15,9 +16,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+        
         </a>
-
+        <Search></Search>
       </header>
     </div>
   );

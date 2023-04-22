@@ -1,15 +1,37 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const { Configuration, OpenAIApi } = require("openai");
 
-const SearchBar = () => {
+
+const Search = () => {
   const [question, setQuestion] = useState('');
   const [response, setResponse] = useState('');
 
+//   const config = new Configuration({
+// 	apiKey: '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',
+// });
+
+
+let config = new Configuration({
+    apiKey: "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",
+  });
+  
+  delete config.baseOptions.headers['User-Agent'];
+  
+  //const openai = new OpenAIApi(configuration);
+const openai = new OpenAIApi(config);
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("This is the question: ",question)
     try {
-      const { data } = await axios.get(`https://api.openai.com/v1/answers?model=davinci&question=${question}`);
-      setResponse(data.answers[0]);
+        const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: question,
+            max_tokens: 100,
+            temperature: 1,
+        });
+      console.log(response.data.choices[0].text);
+      setResponse(response.data.choices[0].text);
     } catch (error) {
       console.error(error);
       setResponse('Sorry, we could not find an answer to your question.');
@@ -26,5 +48,4 @@ const SearchBar = () => {
     </div>
   );
 };
-
-export default SearchBar;
+export default Search;
