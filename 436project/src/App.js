@@ -1,24 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import Navbar from './NavBar';
+import Library from './pages/Library';
+import Profile from './pages/Profile';
 import Search from './pages/Search';
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-        
-        </a>
         <Search></Search>
+        <Profile/>
+        <Library/>
       </header>
     </div>
   );
