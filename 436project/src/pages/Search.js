@@ -1,34 +1,30 @@
-import React from "react"
-import {useState} from "react"
-import { MDBCol } from "mdbreact";
+import React, { useState } from 'react';
+import axios from 'axios';
 
-const express = require("express")
-require('dotenv').config
-const{Configuration, OpenAiapi} = require('openai')
-const app = express()
-const port = process.env.PORT || 5000
-app.listen(port)
-const configuration = new Configuration({
-    apiKey: process.env.OPEN_API_KEY
-})
-app.use(express.json())
-const openai = new OpenAiapi(configuration)
+const SearchBar = () => {
+  const [question, setQuestion] = useState('');
+  const [response, setResponse] = useState('');
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const { data } = await axios.get(`https://api.openai.com/v1/answers?model=davinci&question=${question}`);
+      setResponse(data.answers[0]);
+    } catch (error) {
+      console.error(error);
+      setResponse('Sorry, we could not find an answer to your question.');
+    }
+  };
 
-function Search(){
-    const[search,setSearch] = useState("")
-    const[answer,setAnswer] = useState("")
-    
-    return(
-    <form class = "form" onSubmit={searchText}>
-        <MDBCol md="6">
-            <input className="form-control" type="text" placeholder="Search" aria-label="Search" onChange={e=>setSearch(e.target.value)}/>
-            <MDBBtn color="elegant" type={"submit"}>Elegant</MDBBtn>
-        </MDBCol>
-    </form>
-    )
-    
-}
-export default Search
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <input type="text" placeholder="Enter your question" value={question} onChange={(e) => setQuestion(e.target.value)} />
+        <button type="submit">Submit</button>
+      </form>
+      <p>{response}</p>
+    </div>
+  );
+};
 
-
+export default SearchBar;
