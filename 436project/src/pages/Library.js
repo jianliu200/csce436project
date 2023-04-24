@@ -31,7 +31,8 @@ function Library() {
   };
 
   const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    book.author.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
@@ -40,7 +41,7 @@ function Library() {
       <div>
         <input
           type="text"
-          placeholder="Search books by title"
+          placeholder="Search by title or author"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
