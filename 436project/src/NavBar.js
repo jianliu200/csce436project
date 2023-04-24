@@ -12,6 +12,11 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
+          <NavLink exact to="/Search">
+            Search
+          </NavLink>
+        </li>
+        <li>
           <NavLink exact to="/Profile">
             Profile
           </NavLink>
