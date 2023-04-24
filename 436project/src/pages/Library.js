@@ -40,7 +40,6 @@ function Library() {
 
   return (
     <div>
-      <Navbar />
       <h1 style={{padding:60,}}>My Library</h1>
       <div>
         <input

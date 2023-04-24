@@ -5,7 +5,6 @@ import Navbar from '../NavBar';
 const Profile = () => {
   return (
     <div>
-      <Navbar />
       <h1 style={{padding:60,}}>My Profile</h1>
 
       <div style={{ backgroundColor: '#F6F6F6', borderRadius: '12px', padding: '24px', boxShadow: '0px 0px 12px #BDBDBD', }}>
