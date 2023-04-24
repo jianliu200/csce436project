@@ -40,10 +40,8 @@ function Library() {
 
   return (
     <div>
-      <Router>
-        <Navbar />
-      </Router>
-      <h1>My Library</h1>
+      <Navbar />
+      <h1 style={{padding:60,}}>My Library</h1>
       <div>
         <input
           type="text"

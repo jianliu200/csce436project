@@ -5,10 +5,9 @@ import Navbar from '../NavBar';
 const Profile = () => {
   return (
     <div>
-      <Router>
-        <Navbar />
-      </Router>
-        
+      <Navbar />
+      <h1 style={{padding:60,}}>My Profile</h1>
+
       <div style={{ backgroundColor: '#F6F6F6', borderRadius: '12px', padding: '24px', boxShadow: '0px 0px 12px #BDBDBD', }}>
         <h1 style={{ fontSize: '32px', margin: '0',color: "black" }}>First Name: John</h1>
         <h1 style={{ fontSize: '32px', margin: '0',color:"black" }}>Last Name: Doe</h1>

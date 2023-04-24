@@ -7,22 +7,17 @@ function Navbar() {
     <nav className="navbar">
       <ul>
         <li>
-          <NavLink exact to="/">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink exact to="/">
+          <NavLink exact to="/Library">
             Library
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/">
+          <NavLink exact to="/Profile">
             Profile
           </NavLink>
         </li>
         <li>
-          <NavLink exact to="/">
+          <NavLink exact to="/Stat">
             Stats
           </NavLink>
         </li>

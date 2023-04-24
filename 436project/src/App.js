@@ -1,18 +1,23 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './NavBar';
 import Library from './pages/Library';
 import Profile from './pages/Profile';
-import Search from './pages/Search';
+import Stat from './pages/Stat';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Search></Search>
-        <Profile/>
-        <Library/>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/Library" element={<Library />} />
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/Stat" element={<Stat />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
