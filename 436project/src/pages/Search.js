@@ -37,7 +37,7 @@ const openai = new OpenAIApi(config);
         const res2 = await openai.createCompletion({
           model: "text-davinci-003",
           prompt: getsynopsis,
-          max_tokens: 100,
+          max_tokens: 200,
           temperature: 1,
       });
       console.log(res1.data.choices[0].text);
@@ -65,7 +65,7 @@ const openai = new OpenAIApi(config);
     const res2 = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: getsynopsis,
-      max_tokens: 100,
+      max_tokens: 200,
       temperature: 1,
   });
   console.log(res1.data.choices[0].text);
