@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from '../NavBar';
+
 
 function Library() {
   const [books, setBooks] = useState([
@@ -37,6 +40,9 @@ function Library() {
 
   return (
     <div>
+      <Router>
+        <Navbar />
+      </Router>
       <h1>My Library</h1>
       <div>
         <input
