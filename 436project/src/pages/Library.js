@@ -9,6 +9,7 @@ function Library() {
   const [showAddBookForm, setShowAddBookForm] = useState(false);
   const [newBookTitle, setNewBookTitle] = useState('');
   const [newBookAuthor, setNewBookAuthor] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleDelete = (index) => {
     const updatedBooks = [...books];
@@ -29,11 +30,23 @@ function Library() {
     setNewBookAuthor('');
   };
 
+  const filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div>
       <h1>My Library</h1>
+      <div>
+        <input
+          type="text"
+          placeholder="Search books by title or author"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
       <ul>
-        {books.map((book, index) => (
+        {filteredBooks.map((book, index) => (
           <li key={index}>
             {book.title} by {book.author}
             <button onClick={() => handleDelete(index)}>Delete</button>
