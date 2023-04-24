@@ -1,5 +1,28 @@
 import React from 'react'
 
+function Stat(){
+    const totalBooks = 123;
+    const favoriteGenres = ['Mystery', 'Thriller', 'Fantasy'];
+    const favoriteAuthors = ['Agatha Christie', 'Stephen King', 'J.K. Rowling'];
+  
+    return (
+      <div>
+        <h2>Profile Stats</h2>
+        <p>Total number of books: {totalBooks}</p>
+        <p>Favorite genres:</p>
+        <ul>
+          {favoriteGenres.map(genre => (
+            <li key={genre}>{genre}</li>
+          ))}
+        </ul>
+        <p>Favorite authors:</p>
+        <ul>
+          {favoriteAuthors.map(author => (
+            <li key={author}>{author}</li>
+          ))}
+        </ul>
+      </div>
+    );
 function Stat(book){
     var maximum = 0
 
@@ -44,5 +67,6 @@ function Stat(book){
     return(
         <h1>The most popular author you are reading right now is : ${answer} with ${maximum}</h1>
     )
+}
 }
 export default Stat

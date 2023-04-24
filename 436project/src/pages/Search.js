@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Navbar from '../NavBar';
+
 import axios from 'axios';
 const { Configuration, OpenAIApi } = require("openai");
 
@@ -79,6 +81,7 @@ const openai = new OpenAIApi(config);
 
   return (
     <div>
+      <h1 style={{padding:60,}}>Search</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Enter any details about the book" value={information} onChange={(e) => setInformation(e.target.value)} />
         <button type="submit">Submit</button>

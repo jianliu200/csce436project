@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import Navbar from '../NavBar';
+import './Library.css';
+
 
 function Library() {
   const [books, setBooks] = useState([
@@ -31,17 +34,19 @@ function Library() {
   };
 
   const filteredBooks = books.filter((book) =>
-    book.title.toLowerCase().includes(searchTerm.toLowerCase())
+    book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    book.author.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div>
-      <h1>My Library</h1>
+      <h1 style={{padding:60,}}>My Library</h1>
       <div>
         <input
           type="text"
           placeholder="Search books by title or author"
           value={searchTerm}
+          size="30"
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </div>
