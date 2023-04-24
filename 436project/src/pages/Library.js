@@ -40,7 +40,7 @@ function Library() {
       <div>
         <input
           type="text"
-          placeholder="Search books by title or author"
+          placeholder="Search books by title"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
