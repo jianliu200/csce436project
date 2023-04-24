@@ -13,7 +13,7 @@ const Search = () => {
 
 
 let config = new Configuration({
-    apiKey: "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",
+    apiKey: "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",
   });
   
   delete config.baseOptions.headers['User-Agent'];
